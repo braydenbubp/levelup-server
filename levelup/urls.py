@@ -1,6 +1,8 @@
 from django.conf.urls import include
+from django.urls import path
 from rest_framework import routers
-from levelupapi.views import GameTypeView, EventView, GameView
+from levelupapi.views import GameTypeView, EventView, GameView, register_user, check_user
+
 
 """levelup URL Configuration
 
@@ -28,4 +30,6 @@ router.register(r'games', GameView, 'game')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('register', register_user),
+    path('checkuser', check_user),
 ]
